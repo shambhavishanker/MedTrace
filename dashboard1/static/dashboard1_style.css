@@ -1,0 +1,1200 @@
+/* =========================================================
+   MEDTRACE - RECALL INVESTIGATION CENTER
+   ========================================================= */
+
+
+/* ================= GLOBAL ================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background-color: #f4f7fb;
+
+    color: #172033;
+
+    line-height: 1.5;
+
+}
+
+
+/* ================= MAIN CONTAINER ================= */
+
+.dashboard-container {
+
+    width: 100%;
+
+    max-width: 1450px;
+
+    margin: 0 auto;
+
+    padding: 32px 40px 50px;
+
+}
+
+
+/* ================= HEADER ================= */
+
+.dashboard-header {
+
+    background: #ffffff;
+
+    border: 1px solid #e5eaf1;
+
+    border-radius: 14px;
+
+    padding: 25px 30px;
+
+    margin-bottom: 24px;
+
+    box-shadow: 0 2px 8px rgba(20, 40, 70, 0.05);
+
+}
+
+
+.brand-name {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #2563eb;
+
+    margin-bottom: 12px;
+
+}
+
+
+.header-content h1 {
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: #172033;
+
+    margin-bottom: 6px;
+
+}
+
+
+.header-content p {
+
+    font-size: 14px;
+
+    color: #6b7280;
+
+}
+
+
+/* ================= SECTION ================= */
+
+.dashboard-section,
+.search-section {
+
+    background: #ffffff;
+
+    border: 1px solid #e5eaf1;
+
+    border-radius: 14px;
+
+    padding: 26px 30px;
+
+    margin-bottom: 24px;
+
+    box-shadow: 0 2px 8px rgba(20, 40, 70, 0.05);
+
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 22px;
+
+}
+
+
+.section-label {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    color: #2563eb;
+
+    margin-bottom: 4px;
+
+}
+
+
+.section-heading h2,
+.search-section h2 {
+
+    font-size: 20px;
+
+    font-weight: 650;
+
+    color: #172033;
+
+}
+
+
+.section-heading p {
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: #6b7280;
+
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-section {
+
+    background: #ffffff;
+
+}
+
+
+.search-section h2 {
+
+    margin-bottom: 5px;
+
+}
+
+
+.search-section p {
+
+    font-size: 13px;
+
+    color: #6b7280;
+
+    margin-bottom: 18px;
+
+}
+
+
+.search-box {
+
+    display: flex;
+
+    gap: 12px;
+
+    width: 100%;
+
+}
+
+
+.search-box select {
+
+    flex: 1;
+
+    min-height: 46px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d5dce7;
+
+    border-radius: 8px;
+
+    background-color: #ffffff;
+
+    color: #172033;
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+
+.search-box select:focus {
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+
+}
+
+
+.search-box button {
+
+    min-width: 130px;
+
+    padding: 0 22px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+
+.search-box button:hover {
+
+    background-color: #1d4ed8;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* ================= RECALL OVERVIEW ================= */
+
+.overview-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.info-card {
+
+    min-height: 82px;
+
+    padding: 16px 18px;
+
+    border: 1px solid #e6ebf2;
+
+    border-radius: 10px;
+
+    background-color: #fafbfd;
+
+}
+
+
+.info-card span {
+
+    display: block;
+
+    font-size: 12px;
+
+    color: #6b7280;
+
+    margin-bottom: 6px;
+
+}
+
+
+.info-card strong {
+
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #172033;
+
+}
+
+
+/* ================= STATUS ================= */
+
+.status-critical {
+
+    color: #c62828 !important;
+
+}
+
+
+.status-progress {
+
+    color: #b7791f !important;
+
+}
+
+
+/* ================= BATCH BADGE ================= */
+
+.batch-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 11px;
+
+    background: #eef4ff;
+
+    color: #2563eb;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* ================= INVENTORY ================= */
+
+.inventory-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.inventory-card {
+
+    padding: 20px;
+
+    border: 1px solid #e4e9f0;
+
+    border-radius: 10px;
+
+    background: #fafbfd;
+
+}
+
+
+.inventory-card span {
+
+    display: block;
+
+    font-size: 12px;
+
+    color: #6b7280;
+
+    margin-bottom: 8px;
+
+}
+
+
+.inventory-card strong {
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: #172033;
+
+}
+
+
+/* ================= RECOVERY ================= */
+
+.recovery-section {
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #edf0f4;
+
+}
+
+
+.recovery-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 10px;
+
+}
+
+
+.recovery-header span {
+
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #172033;
+
+}
+
+
+.recovery-header p {
+
+    font-size: 12px;
+
+    color: #6b7280;
+
+    margin-top: 2px;
+
+}
+
+
+.recovery-header strong {
+
+    font-size: 20px;
+
+    color: #2563eb;
+
+}
+
+
+.progress-bar {
+
+    width: 100%;
+
+    height: 9px;
+
+    background: #e8edf4;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+
+.progress-fill {
+
+    height: 100%;
+
+    background: #2563eb;
+
+    border-radius: 20px;
+
+    transition: width 0.5s ease;
+
+}
+
+
+/* ================= TABLE ================= */
+
+.table-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 700px;
+
+}
+
+
+th {
+
+    padding: 13px 14px;
+
+    text-align: left;
+
+    background: #f7f9fc;
+
+    border-bottom: 1px solid #e2e7ee;
+
+    color: #5b6575;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+td {
+
+    padding: 15px 14px;
+
+    border-bottom: 1px solid #edf0f4;
+
+    color: #374151;
+
+    font-size: 13px;
+
+}
+
+
+tbody tr:hover {
+
+    background-color: #f9fbff;
+
+}
+
+
+/* ================= STATUS BADGES ================= */
+
+.status-badge {
+
+    display: inline-block;
+
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+}
+
+
+.status-active {
+
+    background: #eaf2ff;
+
+    color: #2563eb;
+
+}
+
+
+.status-pending {
+
+    background: #fff5df;
+
+    color: #a16207;
+
+}
+
+
+.status-completed {
+
+    background: #eaf8ef;
+
+    color: #218044;
+
+}
+
+
+/* ================= TIMELINE ================= */
+
+/* =========================================================
+   RECALL TIMELINE - HORIZONTAL
+   ========================================================= */
+
+.timeline-container {
+    padding: 25px 20px;
+    overflow-x: auto;
+}
+
+.timeline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    min-width: 700px;
+    padding: 20px 10px 10px;
+}
+
+/* Horizontal connecting line */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 31px;
+    left: 45px;
+    right: 45px;
+    height: 2px;
+    background: #d9dee7;
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    text-align: center;
+    min-width: 100px;
+}
+
+.timeline-dot {
+    width: 14px;
+    height: 14px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #2563eb;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 0 2px #2563eb;
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #172033;
+    margin-bottom: 5px;
+}
+
+.timeline-date {
+    font-size: 11px;
+    color: #6b7280;
+    white-space: nowrap;
+}
+
+/* Mobile / smaller screens */
+@media (max-width: 700px) {
+    .timeline-container {
+        overflow-x: auto;
+    }
+
+    .timeline {
+        min-width: 700px;
+    }
+}
+/* ================= INVESTIGATION ================= */
+
+.investigation-section {
+
+    margin-bottom: 0;
+
+}
+
+
+.investigation-container {
+
+    border: 1px solid #e3e8ef;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+
+.investigation-container .investigation-header {
+
+    padding: 15px 18px;
+
+    background: #f7f9fc;
+
+    border-bottom: 1px solid #e3e8ef;
+
+}
+
+
+.investigation-container .investigation-body {
+
+    padding: 20px;
+
+}
+
+
+.investigation-row {
+
+    margin-bottom: 18px;
+
+}
+
+
+.investigation-row:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.investigation-row .label {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+
+    color: #6b7280;
+
+    margin-bottom: 5px;
+
+}
+
+
+.investigation-row .value {
+
+    font-size: 14px;
+
+    color: #172033;
+
+}
+
+
+/* ================= EVIDENCE ================= */
+
+.evidence-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 8px;
+
+}
+
+
+.evidence-item {
+
+    padding: 6px 10px;
+
+    background: #f1f5f9;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+
+    color: #475569;
+
+}
+
+
+/* ================= EMPTY STATE ================= */
+
+.empty-state {
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    color: #7a8494;
+
+}
+
+
+.empty-icon {
+
+    width: 34px;
+
+    height: 34px;
+
+    margin: 0 auto 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f1f4f8;
+
+    color: #8a94a3;
+
+    font-weight: 600;
+
+}
+
+
+.empty-state p {
+
+    font-size: 13px;
+
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+
+    .overview-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .inventory-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .timeline {
+
+        flex-direction: column;
+
+    }
+
+    .timeline-item {
+
+        width: 100%;
+
+        text-align: left;
+
+        padding-left: 35px;
+
+    }
+
+    .timeline-item::before {
+
+        left: 8px;
+
+        transform: none;
+
+    }
+
+    .timeline-item:not(:last-child)::after {
+
+        left: 13px;
+
+        top: 20px;
+
+        width: 2px;
+
+        height: calc(100% + 5px);
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .dashboard-container {
+
+        padding: 20px 15px 40px;
+
+    }
+
+    .dashboard-section,
+    .search-section {
+
+        padding: 20px;
+
+    }
+
+    .overview-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .inventory-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .search-box {
+
+        flex-direction: column;
+
+    }
+
+    .search-box button {
+
+        min-height: 45px;
+
+    }
+
+    .header-content h1 {
+
+        font-size: 23px;
+
+    }
+
+}
+
+/* =========================================================
+   DYNAMIC INVESTIGATION CONTENT
+   ========================================================= */
+
+.investigation-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+    padding: 20px;
+
+}
+
+
+.investigation-block {
+
+    padding: 16px;
+
+    border: 1px solid #e4e9f0;
+
+    border-radius: 9px;
+
+    background: #fafbfd;
+
+}
+
+
+.investigation-label {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.6px;
+
+    color: #6b7280;
+
+    margin-bottom: 7px;
+
+}
+
+
+.investigation-block strong {
+
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #172033;
+
+}
+
+
+.investigation-block p {
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: #374151;
+
+}
+
+
+.investigation-block ul {
+
+    margin: 6px 0 0 18px;
+
+    padding: 0;
+
+}
+
+
+.investigation-block li {
+
+    margin-bottom: 5px;
+
+    font-size: 13px;
+
+    color: #475569;
+
+}
+
+
+/* ================= INVESTIGATION RESPONSIVE ================= */
+
+@media (max-width: 700px) {
+
+    .investigation-grid {
+
+        grid-template-columns: 1fr;
+
+        padding: 15px;
+
+    }
+
+}
+
+/* =========================================================
+   HORIZONTAL RECALL TIMELINE
+   ========================================================= */
+
+.timeline-container {
+    padding: 25px 20px;
+    overflow-x: auto;
+}
+
+.timeline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    min-width: 750px;
+    padding: 20px 10px 10px;
+}
+
+/* Horizontal connecting line */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 27px;
+    left: 55px;
+    right: 55px;
+    height: 2px;
+    background: #d9dee7;
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-width: 110px;
+    text-align: center;
+}
+
+.timeline-dot {
+    width: 14px;
+    height: 14px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #2563eb;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 0 2px #2563eb;
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #172033;
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+.timeline-date {
+    font-size: 11px;
+    color: #6b7280;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   DYNAMIC INVESTIGATION CONTENT
+   ========================================================= */
+
+.investigation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    padding: 20px;
+}
+
+.investigation-block {
+    padding: 16px;
+    border: 1px solid #e4e9f0;
+    border-radius: 9px;
+    background: #fafbfd;
+}
+
+.investigation-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #6b7280;
+    margin-bottom: 7px;
+}
+
+.investigation-block strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #172033;
+}
+
+.investigation-block p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #374151;
+}
+
+.investigation-block ul {
+    margin: 6px 0 0 18px;
+    padding: 0;
+}
+
+.investigation-block li {
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #475569;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .timeline-container {
+        overflow-x: auto;
+    }
+
+    .timeline {
+        min-width: 750px;
+    }
+
+    .investigation-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+}

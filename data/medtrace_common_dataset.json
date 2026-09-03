@@ -1,0 +1,1279 @@
+{
+  "dataset_name": "MedTrace AI Shared Mock Recall Dataset",
+  "dataset_version": "1.0",
+  "data_type": "Mock/Demo",
+  "recalls": [
+    {
+      "recall_id": "REC-2026-001",
+      "medicine": "Amoxicillin 500mg",
+      "manufacturer": "ABC Pharma",
+      "drug_category": "Antibiotic",
+      "batch": "AMX231",
+      "reason": "Contamination",
+      "severity": "Critical",
+      "status": "In Progress",
+      "manufacturing_date": "2026-01-10",
+      "expiry_date": "2028-01-09",
+      "recall_date": "2026-03-15",
+
+      "batch_details": {
+        "units_produced": 20000,
+        "units_distributed": 15000,
+        "units_recovered": 9000
+      },
+
+      "facilities": [
+        {
+          "name": "City General Hospital",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 5000,
+          "units_recovered": 3200,
+          "status": "Active"
+        },
+        {
+          "name": "Central Medical Store",
+          "type": "Distributor",
+          "location": "Mumbai",
+          "state": "Maharashtra",
+          "units_received": 3500,
+          "units_recovered": 2300,
+          "status": "Active"
+        },
+        {
+          "name": "Sunrise Pharmacy",
+          "type": "Pharmacy",
+          "location": "Bengaluru",
+          "state": "Karnataka",
+          "units_received": 2500,
+          "units_recovered": 1800,
+          "status": "Active"
+        },
+        {
+          "name": "District Hospital",
+          "type": "Hospital",
+          "location": "Pune",
+          "state": "Maharashtra",
+          "units_received": 2000,
+          "units_recovered": 1200,
+          "status": "Pending"
+        },
+        {
+          "name": "Community Health Pharmacy",
+          "type": "Pharmacy",
+          "location": "Hyderabad",
+          "state": "Telangana",
+          "units_received": 2000,
+          "units_recovered": 500,
+          "status": "Pending"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-01-10",
+        "distributed": "2026-01-20",
+        "complaint": "2026-03-05",
+        "lab_test": "2026-03-10",
+        "recall_issued": "2026-03-15",
+        "stock_removed": "2026-03-18",
+        "closed": null
+      },
+
+      "ml_features": {
+        "production_volume": 20000,
+        "previous_recall_count": 2,
+        "complaint_count": 18,
+        "storage_violations": 3,
+        "manufacturing_delays": 2
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "City General Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Acknowledged",
+          "alert_sent": "2026-03-16T09:00:00",
+          "opened": "2026-03-16T10:15:00",
+          "stock_quarantined": "2026-03-16T13:00:00",
+          "action_confirmed": "2026-03-17T11:00:00",
+          "response_completed": null
+        },
+        {
+          "stakeholder": "Sunrise Pharmacy",
+          "stakeholder_type": "Pharmacy",
+          "alert_status": "Pending",
+          "alert_sent": "2026-03-16T09:30:00",
+          "opened": null,
+          "stock_quarantined": null,
+          "action_confirmed": null,
+          "response_completed": null
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-002",
+      "medicine": "Paracetamol 500mg",
+      "manufacturer": "XYZ Pharma",
+      "drug_category": "Analgesic",
+      "batch": "PCM452",
+      "reason": "Mislabeling",
+      "severity": "Major",
+      "status": "Active",
+      "manufacturing_date": "2026-01-15",
+      "expiry_date": "2028-01-14",
+      "recall_date": "2026-02-20",
+
+      "batch_details": {
+        "units_produced": 30000,
+        "units_distributed": 22000,
+        "units_recovered": 14000
+      },
+
+      "facilities": [
+        {
+          "name": "Metro Hospital",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 7000,
+          "units_recovered": 5000,
+          "status": "Active"
+        },
+        {
+          "name": "LifeCare Pharmacy",
+          "type": "Pharmacy",
+          "location": "Chennai",
+          "state": "Tamil Nadu",
+          "units_received": 5000,
+          "units_recovered": 3500,
+          "status": "Active"
+        },
+        {
+          "name": "State Medical Store",
+          "type": "Distributor",
+          "location": "Kolkata",
+          "state": "West Bengal",
+          "units_received": 6000,
+          "units_recovered": 3500,
+          "status": "Pending"
+        },
+        {
+          "name": "District Clinic",
+          "type": "Hospital",
+          "location": "Jaipur",
+          "state": "Rajasthan",
+          "units_received": 4000,
+          "units_recovered": 2000,
+          "status": "Pending"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-01-15",
+        "distributed": "2026-01-25",
+        "complaint": "2026-02-12",
+        "lab_test": "2026-02-17",
+        "recall_issued": "2026-02-20",
+        "stock_removed": "2026-02-23",
+        "closed": null
+      },
+
+      "ml_features": {
+        "production_volume": 30000,
+        "previous_recall_count": 1,
+        "complaint_count": 12,
+        "storage_violations": 1,
+        "manufacturing_delays": 1
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "Metro Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Completed",
+          "alert_sent": "2026-02-21T09:00:00",
+          "opened": "2026-02-21T09:20:00",
+          "stock_quarantined": "2026-02-21T12:00:00",
+          "action_confirmed": "2026-02-22T10:00:00",
+          "response_completed": "2026-02-22T10:30:00"
+        },
+        {
+          "stakeholder": "LifeCare Pharmacy",
+          "stakeholder_type": "Pharmacy",
+          "alert_status": "Acknowledged",
+          "alert_sent": "2026-02-21T09:15:00",
+          "opened": "2026-02-21T11:00:00",
+          "stock_quarantined": "2026-02-21T14:00:00",
+          "action_confirmed": "2026-02-22T12:00:00",
+          "response_completed": null
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-003",
+      "medicine": "Azithromycin 250mg",
+      "manufacturer": "MedCare Labs",
+      "drug_category": "Antibiotic",
+      "batch": "AZT789",
+      "reason": "Packaging",
+      "severity": "Major",
+      "status": "Completed",
+      "manufacturing_date": "2026-01-05",
+      "expiry_date": "2028-01-04",
+      "recall_date": "2026-02-05",
+
+      "batch_details": {
+        "units_produced": 15000,
+        "units_distributed": 12000,
+        "units_recovered": 12000
+      },
+
+      "facilities": [
+        {
+          "name": "Apollo Medical Centre",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 4000,
+          "units_recovered": 4000,
+          "status": "Completed"
+        },
+        {
+          "name": "CarePlus Hospital",
+          "type": "Hospital",
+          "location": "Mumbai",
+          "state": "Maharashtra",
+          "units_received": 3000,
+          "units_recovered": 3000,
+          "status": "Completed"
+        },
+        {
+          "name": "HealthPoint Pharmacy",
+          "type": "Pharmacy",
+          "location": "Pune",
+          "state": "Maharashtra",
+          "units_received": 3000,
+          "units_recovered": 3000,
+          "status": "Completed"
+        },
+        {
+          "name": "District Medical Store",
+          "type": "Distributor",
+          "location": "Jaipur",
+          "state": "Rajasthan",
+          "units_received": 2000,
+          "units_recovered": 2000,
+          "status": "Completed"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-01-05",
+        "distributed": "2026-01-15",
+        "complaint": "2026-01-28",
+        "lab_test": "2026-02-02",
+        "recall_issued": "2026-02-05",
+        "stock_removed": "2026-02-08",
+        "closed": "2026-02-14"
+      },
+
+      "ml_features": {
+        "production_volume": 15000,
+        "previous_recall_count": 0,
+        "complaint_count": 7,
+        "storage_violations": 0,
+        "manufacturing_delays": 1
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "Apollo Medical Centre",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Completed",
+          "alert_sent": "2026-02-06T09:00:00",
+          "opened": "2026-02-06T09:20:00",
+          "stock_quarantined": "2026-02-06T11:00:00",
+          "action_confirmed": "2026-02-07T10:00:00",
+          "response_completed": "2026-02-08T09:00:00"
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-004",
+      "medicine": "Metformin 500mg",
+      "manufacturer": "HealthFirst Pharma",
+      "drug_category": "Antidiabetic",
+      "batch": "MET321",
+      "reason": "Incorrect Dosage",
+      "severity": "Critical",
+      "status": "In Progress",
+      "manufacturing_date": "2026-01-20",
+      "expiry_date": "2028-01-19",
+      "recall_date": "2026-03-25",
+
+      "batch_details": {
+        "units_produced": 25000,
+        "units_distributed": 18000,
+        "units_recovered": 7000
+      },
+
+      "facilities": [
+        {
+          "name": "City Hospital",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 6000,
+          "units_recovered": 2500,
+          "status": "Active"
+        },
+        {
+          "name": "HealthFirst Pharmacy",
+          "type": "Pharmacy",
+          "location": "Mumbai",
+          "state": "Maharashtra",
+          "units_received": 4500,
+          "units_recovered": 1800,
+          "status": "Active"
+        },
+        {
+          "name": "Regional Medical Store",
+          "type": "Distributor",
+          "location": "Bengaluru",
+          "state": "Karnataka",
+          "units_received": 4000,
+          "units_recovered": 1700,
+          "status": "Active"
+        },
+        {
+          "name": "Community Clinic",
+          "type": "Hospital",
+          "location": "Chennai",
+          "state": "Tamil Nadu",
+          "units_received": 3500,
+          "units_recovered": 1000,
+          "status": "Pending"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-01-20",
+        "distributed": "2026-02-01",
+        "complaint": "2026-03-12",
+        "lab_test": "2026-03-20",
+        "recall_issued": "2026-03-25",
+        "stock_removed": "2026-03-28",
+        "closed": null
+      },
+
+      "ml_features": {
+        "production_volume": 25000,
+        "previous_recall_count": 3,
+        "complaint_count": 24,
+        "storage_violations": 2,
+        "manufacturing_delays": 3
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "City Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Delivered",
+          "alert_sent": "2026-03-26T09:00:00",
+          "opened": "2026-03-26T10:30:00",
+          "stock_quarantined": null,
+          "action_confirmed": null,
+          "response_completed": null
+        },
+        {
+          "stakeholder": "HealthFirst Pharmacy",
+          "stakeholder_type": "Pharmacy",
+          "alert_status": "Pending",
+          "alert_sent": "2026-03-26T09:30:00",
+          "opened": null,
+          "stock_quarantined": null,
+          "action_confirmed": null,
+          "response_completed": null
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-005",
+      "medicine": "Cetirizine 10mg",
+      "manufacturer": "Nova Healthcare",
+      "drug_category": "Antihistamine",
+      "batch": "CTZ654",
+      "reason": "Stability Failure",
+      "severity": "Minor",
+      "status": "Closed",
+      "manufacturing_date": "2026-01-02",
+      "expiry_date": "2028-01-01",
+      "recall_date": "2026-01-30",
+
+      "batch_details": {
+        "units_produced": 10000,
+        "units_distributed": 8000,
+        "units_recovered": 8000
+      },
+
+      "facilities": [
+        {
+          "name": "Nova Hospital",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 3000,
+          "units_recovered": 3000,
+          "status": "Completed"
+        },
+        {
+          "name": "City Pharmacy",
+          "type": "Pharmacy",
+          "location": "Mumbai",
+          "state": "Maharashtra",
+          "units_received": 2500,
+          "units_recovered": 2500,
+          "status": "Completed"
+        },
+        {
+          "name": "Community Medical Store",
+          "type": "Distributor",
+          "location": "Pune",
+          "state": "Maharashtra",
+          "units_received": 2500,
+          "units_recovered": 2500,
+          "status": "Completed"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-01-02",
+        "distributed": "2026-01-10",
+        "complaint": "2026-01-20",
+        "lab_test": "2026-01-25",
+        "recall_issued": "2026-01-30",
+        "stock_removed": "2026-02-02",
+        "closed": "2026-02-08"
+      },
+
+      "ml_features": {
+        "production_volume": 10000,
+        "previous_recall_count": 0,
+        "complaint_count": 4,
+        "storage_violations": 1,
+        "manufacturing_delays": 0
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "Nova Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Completed",
+          "alert_sent": "2026-01-31T09:00:00",
+          "opened": "2026-01-31T09:15:00",
+          "stock_quarantined": "2026-01-31T11:00:00",
+          "action_confirmed": "2026-02-01T10:00:00",
+          "response_completed": "2026-02-02T09:00:00"
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-006",
+      "medicine": "Losartan 50mg",
+      "manufacturer": "ABC Pharma",
+      "drug_category": "Cardiovascular",
+      "batch": "LOS876",
+      "reason": "Packaging",
+      "severity": "Major",
+      "status": "Completed",
+      "manufacturing_date": "2026-02-05",
+      "expiry_date": "2028-02-04",
+      "recall_date": "2026-03-10",
+
+      "batch_details": {
+        "units_produced": 18000,
+        "units_distributed": 14000,
+        "units_recovered": 13000
+      },
+
+      "facilities": [
+        {
+          "name": "Wellness Hospital",
+          "type": "Hospital",
+          "location": "Hyderabad",
+          "state": "Telangana",
+          "units_received": 6000,
+          "units_recovered": 5500,
+          "status": "Completed"
+        },
+        {
+          "name": "Wellness Pharmacy",
+          "type": "Pharmacy",
+          "location": "Mumbai",
+          "state": "Maharashtra",
+          "units_received": 4000,
+          "units_recovered": 4000,
+          "status": "Completed"
+        },
+        {
+          "name": "Regional Distributor",
+          "type": "Distributor",
+          "location": "Bengaluru",
+          "state": "Karnataka",
+          "units_received": 4000,
+          "units_recovered": 3500,
+          "status": "Completed"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-02-05",
+        "distributed": "2026-02-15",
+        "complaint": "2026-02-28",
+        "lab_test": "2026-03-05",
+        "recall_issued": "2026-03-10",
+        "stock_removed": "2026-03-13",
+        "closed": "2026-03-22"
+      },
+
+      "ml_features": {
+        "production_volume": 18000,
+        "previous_recall_count": 1,
+        "complaint_count": 8,
+        "storage_violations": 0,
+        "manufacturing_delays": 1
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "Wellness Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Completed",
+          "alert_sent": "2026-03-11T09:00:00",
+          "opened": "2026-03-11T09:30:00",
+          "stock_quarantined": "2026-03-11T12:00:00",
+          "action_confirmed": "2026-03-12T10:00:00",
+          "response_completed": "2026-03-13T09:00:00"
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-007",
+      "medicine": "Cefixime 200mg",
+      "manufacturer": "MedCare Labs",
+      "drug_category": "Antibiotic",
+      "batch": "CFX204",
+      "reason": "Contamination",
+      "severity": "Critical",
+      "status": "In Progress",
+      "manufacturing_date": "2026-03-01",
+      "expiry_date": "2028-02-29",
+      "recall_date": "2026-04-08",
+
+      "batch_details": {
+        "units_produced": 22000,
+        "units_distributed": 16000,
+        "units_recovered": 9000
+      },
+
+      "facilities": [
+        {
+          "name": "Metro Hospital",
+          "type": "Hospital",
+          "location": "Chennai",
+          "state": "Tamil Nadu",
+          "units_received": 8000,
+          "units_recovered": 4500,
+          "status": "Active"
+        },
+        {
+          "name": "State Medical Store",
+          "type": "Distributor",
+          "location": "Kolkata",
+          "state": "West Bengal",
+          "units_received": 8000,
+          "units_recovered": 4500,
+          "status": "Pending"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-03-01",
+        "distributed": "2026-03-10",
+        "complaint": "2026-03-30",
+        "lab_test": "2026-04-04",
+        "recall_issued": "2026-04-08",
+        "stock_removed": "2026-04-11",
+        "closed": null
+      },
+
+      "ml_features": {
+        "production_volume": 22000,
+        "previous_recall_count": 2,
+        "complaint_count": 20,
+        "storage_violations": 4,
+        "manufacturing_delays": 2
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "Metro Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Opened",
+          "alert_sent": "2026-04-09T09:00:00",
+          "opened": "2026-04-09T11:00:00",
+          "stock_quarantined": null,
+          "action_confirmed": null,
+          "response_completed": null
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-008",
+      "medicine": "Atorvastatin 10mg",
+      "manufacturer": "HealthFirst Pharma",
+      "drug_category": "Cardiovascular",
+      "batch": "ATV512",
+      "reason": "Incorrect Dosage",
+      "severity": "Major",
+      "status": "Closed",
+      "manufacturing_date": "2026-03-10",
+      "expiry_date": "2028-03-09",
+      "recall_date": "2026-05-14",
+
+      "batch_details": {
+        "units_produced": 16000,
+        "units_distributed": 12000,
+        "units_recovered": 12000
+      },
+
+      "facilities": [
+        {
+          "name": "City Hospital",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 6000,
+          "units_recovered": 6000,
+          "status": "Completed"
+        },
+        {
+          "name": "HealthFirst Pharmacy",
+          "type": "Pharmacy",
+          "location": "Pune",
+          "state": "Maharashtra",
+          "units_received": 6000,
+          "units_recovered": 6000,
+          "status": "Completed"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-03-10",
+        "distributed": "2026-03-20",
+        "complaint": "2026-05-01",
+        "lab_test": "2026-05-09",
+        "recall_issued": "2026-05-14",
+        "stock_removed": "2026-05-17",
+        "closed": "2026-05-24"
+      },
+
+      "ml_features": {
+        "production_volume": 16000,
+        "previous_recall_count": 2,
+        "complaint_count": 11,
+        "storage_violations": 1,
+        "manufacturing_delays": 2
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "City Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Completed",
+          "alert_sent": "2026-05-15T09:00:00",
+          "opened": "2026-05-15T09:20:00",
+          "stock_quarantined": "2026-05-15T11:00:00",
+          "action_confirmed": "2026-05-16T10:00:00",
+          "response_completed": "2026-05-17T09:00:00"
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-009",
+      "medicine": "Omeprazole 20mg",
+      "manufacturer": "Nova Healthcare",
+      "drug_category": "Gastrointestinal",
+      "batch": "OMP341",
+      "reason": "Packaging",
+      "severity": "Minor",
+      "status": "Completed",
+      "manufacturing_date": "2026-03-15",
+      "expiry_date": "2028-03-14",
+      "recall_date": "2026-05-30",
+
+      "batch_details": {
+        "units_produced": 14000,
+        "units_distributed": 10000,
+        "units_recovered": 9500
+      },
+
+      "facilities": [
+        {
+          "name": "Nova Hospital",
+          "type": "Hospital",
+          "location": "Mumbai",
+          "state": "Maharashtra",
+          "units_received": 5000,
+          "units_recovered": 4750,
+          "status": "Completed"
+        },
+        {
+          "name": "District Clinic",
+          "type": "Hospital",
+          "location": "Jaipur",
+          "state": "Rajasthan",
+          "units_received": 5000,
+          "units_recovered": 4750,
+          "status": "Completed"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-03-15",
+        "distributed": "2026-03-25",
+        "complaint": "2026-05-15",
+        "lab_test": "2026-05-25",
+        "recall_issued": "2026-05-30",
+        "stock_removed": "2026-06-02",
+        "closed": "2026-06-10"
+      },
+
+      "ml_features": {
+        "production_volume": 14000,
+        "previous_recall_count": 0,
+        "complaint_count": 5,
+        "storage_violations": 0,
+        "manufacturing_delays": 0
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "Nova Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Completed",
+          "alert_sent": "2026-05-31T09:00:00",
+          "opened": "2026-05-31T09:20:00",
+          "stock_quarantined": "2026-05-31T11:00:00",
+          "action_confirmed": "2026-06-01T10:00:00",
+          "response_completed": "2026-06-02T09:00:00"
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-010",
+      "medicine": "Insulin Glargine 100IU/mL",
+      "manufacturer": "XYZ Pharma",
+      "drug_category": "Antidiabetic",
+      "batch": "INS776",
+      "reason": "Mislabeling",
+      "severity": "Critical",
+      "status": "In Progress",
+      "manufacturing_date": "2026-04-01",
+      "expiry_date": "2027-12-31",
+      "recall_date": "2026-06-15",
+
+      "batch_details": {
+        "units_produced": 12000,
+        "units_distributed": 9000,
+        "units_recovered": 7000
+      },
+
+      "facilities": [
+        {
+          "name": "Metro Hospital",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 5000,
+          "units_recovered": 4000,
+          "status": "Active"
+        },
+        {
+          "name": "Regional Medical Store",
+          "type": "Distributor",
+          "location": "Bengaluru",
+          "state": "Karnataka",
+          "units_received": 4000,
+          "units_recovered": 3000,
+          "status": "Pending"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-04-01",
+        "distributed": "2026-04-10",
+        "complaint": "2026-05-30",
+        "lab_test": "2026-06-08",
+        "recall_issued": "2026-06-15",
+        "stock_removed": "2026-06-18",
+        "closed": null
+      },
+
+      "ml_features": {
+        "production_volume": 12000,
+        "previous_recall_count": 3,
+        "complaint_count": 17,
+        "storage_violations": 2,
+        "manufacturing_delays": 3
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "Metro Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Acknowledged",
+          "alert_sent": "2026-06-16T09:00:00",
+          "opened": "2026-06-16T09:30:00",
+          "stock_quarantined": "2026-06-16T12:00:00",
+          "action_confirmed": "2026-06-17T10:00:00",
+          "response_completed": null
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-011",
+      "medicine": "Levocetirizine 5mg",
+      "manufacturer": "Nova Healthcare",
+      "drug_category": "Antihistamine",
+      "batch": "LVC430",
+      "reason": "Stability Failure",
+      "severity": "Minor",
+      "status": "Closed",
+      "manufacturing_date": "2026-04-10",
+      "expiry_date": "2028-04-09",
+      "recall_date": "2026-06-25",
+
+      "batch_details": {
+        "units_produced": 11000,
+        "units_distributed": 8500,
+        "units_recovered": 8500
+      },
+
+      "facilities": [
+        {
+          "name": "Nova Hospital",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 4000,
+          "units_recovered": 4000,
+          "status": "Completed"
+        },
+        {
+          "name": "City Pharmacy",
+          "type": "Pharmacy",
+          "location": "Chennai",
+          "state": "Tamil Nadu",
+          "units_received": 2500,
+          "units_recovered": 2500,
+          "status": "Completed"
+        },
+        {
+          "name": "Central Distributor",
+          "type": "Distributor",
+          "location": "Hyderabad",
+          "state": "Telangana",
+          "units_received": 2000,
+          "units_recovered": 2000,
+          "status": "Completed"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-04-10",
+        "distributed": "2026-04-20",
+        "complaint": "2026-06-10",
+        "lab_test": "2026-06-18",
+        "recall_issued": "2026-06-25",
+        "stock_removed": "2026-06-28",
+        "closed": "2026-07-05"
+      },
+
+      "ml_features": {
+        "production_volume": 11000,
+        "previous_recall_count": 1,
+        "complaint_count": 4,
+        "storage_violations": 1,
+        "manufacturing_delays": 0
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "Nova Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Completed",
+          "alert_sent": "2026-06-26T09:00:00",
+          "opened": "2026-06-26T09:15:00",
+          "stock_quarantined": "2026-06-26T11:00:00",
+          "action_confirmed": "2026-06-27T10:00:00",
+          "response_completed": "2026-06-28T09:00:00"
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-012",
+      "medicine": "Amoxicillin 500mg",
+      "manufacturer": "ABC Pharma",
+      "drug_category": "Antibiotic",
+      "batch": "AMX245",
+      "reason": "Stability Failure",
+      "severity": "Major",
+      "status": "Completed",
+      "manufacturing_date": "2026-05-01",
+      "expiry_date": "2028-04-30",
+      "recall_date": "2026-07-05",
+
+      "batch_details": {
+        "units_produced": 21000,
+        "units_distributed": 16000,
+        "units_recovered": 15500
+      },
+
+      "facilities": [
+        {
+          "name": "City General Hospital",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 6000,
+          "units_recovered": 5800,
+          "status": "Completed"
+        },
+        {
+          "name": "Sunrise Pharmacy",
+          "type": "Pharmacy",
+          "location": "Bengaluru",
+          "state": "Karnataka",
+          "units_received": 5000,
+          "units_recovered": 4700,
+          "status": "Completed"
+        },
+        {
+          "name": "Central Medical Store",
+          "type": "Distributor",
+          "location": "Mumbai",
+          "state": "Maharashtra",
+          "units_received": 5000,
+          "units_recovered": 5000,
+          "status": "Completed"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-05-01",
+        "distributed": "2026-05-12",
+        "complaint": "2026-06-20",
+        "lab_test": "2026-06-28",
+        "recall_issued": "2026-07-05",
+        "stock_removed": "2026-07-08",
+        "closed": "2026-07-16"
+      },
+
+      "ml_features": {
+        "production_volume": 21000,
+        "previous_recall_count": 2,
+        "complaint_count": 9,
+        "storage_violations": 1,
+        "manufacturing_delays": 1
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "Sunrise Pharmacy",
+          "stakeholder_type": "Pharmacy",
+          "alert_status": "Completed",
+          "alert_sent": "2026-07-06T09:00:00",
+          "opened": "2026-07-06T09:20:00",
+          "stock_quarantined": "2026-07-06T11:00:00",
+          "action_confirmed": "2026-07-07T10:00:00",
+          "response_completed": "2026-07-08T09:00:00"
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-013",
+      "medicine": "Paracetamol 500mg",
+      "manufacturer": "XYZ Pharma",
+      "drug_category": "Analgesic",
+      "batch": "PCM478",
+      "reason": "Contamination",
+      "severity": "Critical",
+      "status": "In Progress",
+      "manufacturing_date": "2026-06-01",
+      "expiry_date": "2028-05-31",
+      "recall_date": "2026-07-20",
+
+      "batch_details": {
+        "units_produced": 32000,
+        "units_distributed": 24000,
+        "units_recovered": 10000
+      },
+
+      "facilities": [
+        {
+          "name": "Metro Hospital",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 7000,
+          "units_recovered": 3500,
+          "status": "Active"
+        },
+        {
+          "name": "LifeCare Pharmacy",
+          "type": "Pharmacy",
+          "location": "Chennai",
+          "state": "Tamil Nadu",
+          "units_received": 6000,
+          "units_recovered": 2500,
+          "status": "Active"
+        },
+        {
+          "name": "State Medical Store",
+          "type": "Distributor",
+          "location": "Kolkata",
+          "state": "West Bengal",
+          "units_received": 6000,
+          "units_recovered": 2000,
+          "status": "Pending"
+        },
+        {
+          "name": "District Clinic",
+          "type": "Hospital",
+          "location": "Jaipur",
+          "state": "Rajasthan",
+          "units_received": 5000,
+          "units_recovered": 2000,
+          "status": "Pending"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-06-01",
+        "distributed": "2026-06-10",
+        "complaint": "2026-07-05",
+        "lab_test": "2026-07-15",
+        "recall_issued": "2026-07-20",
+        "stock_removed": "2026-07-23",
+        "closed": null
+      },
+
+      "ml_features": {
+        "production_volume": 32000,
+        "previous_recall_count": 1,
+        "complaint_count": 22,
+        "storage_violations": 5,
+        "manufacturing_delays": 2
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "Metro Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Delivered",
+          "alert_sent": "2026-07-21T09:00:00",
+          "opened": "2026-07-21T10:00:00",
+          "stock_quarantined": null,
+          "action_confirmed": null,
+          "response_completed": null
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-014",
+      "medicine": "Metformin 500mg",
+      "manufacturer": "HealthFirst Pharma",
+      "drug_category": "Antidiabetic",
+      "batch": "MET344",
+      "reason": "Mislabeling",
+      "severity": "Major",
+      "status": "Completed",
+      "manufacturing_date": "2026-06-15",
+      "expiry_date": "2028-06-14",
+      "recall_date": "2026-08-01",
+
+      "batch_details": {
+        "units_produced": 26000,
+        "units_distributed": 19000,
+        "units_recovered": 18500
+      },
+
+      "facilities": [
+        {
+          "name": "City Hospital",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 7000,
+          "units_recovered": 6800,
+          "status": "Completed"
+        },
+        {
+          "name": "HealthFirst Pharmacy",
+          "type": "Pharmacy",
+          "location": "Mumbai",
+          "state": "Maharashtra",
+          "units_received": 6000,
+          "units_recovered": 5800,
+          "status": "Completed"
+        },
+        {
+          "name": "Regional Medical Store",
+          "type": "Distributor",
+          "location": "Bengaluru",
+          "state": "Karnataka",
+          "units_received": 6000,
+          "units_recovered": 5900,
+          "status": "Completed"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-06-15",
+        "distributed": "2026-06-25",
+        "complaint": "2026-07-15",
+        "lab_test": "2026-07-25",
+        "recall_issued": "2026-08-01",
+        "stock_removed": "2026-08-04",
+        "closed": "2026-08-12"
+      },
+
+      "ml_features": {
+        "production_volume": 26000,
+        "previous_recall_count": 3,
+        "complaint_count": 13,
+        "storage_violations": 2,
+        "manufacturing_delays": 2
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "City Hospital",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Completed",
+          "alert_sent": "2026-08-02T09:00:00",
+          "opened": "2026-08-02T09:15:00",
+          "stock_quarantined": "2026-08-02T11:00:00",
+          "action_confirmed": "2026-08-03T10:00:00",
+          "response_completed": "2026-08-04T09:00:00"
+        }
+      ]
+    },
+
+    {
+      "recall_id": "REC-2026-015",
+      "medicine": "Azithromycin 250mg",
+      "manufacturer": "MedCare Labs",
+      "drug_category": "Antibiotic",
+      "batch": "AZT812",
+      "reason": "Incorrect Dosage",
+      "severity": "Major",
+      "status": "In Progress",
+      "manufacturing_date": "2026-07-01",
+      "expiry_date": "2028-06-30",
+      "recall_date": "2026-08-20",
+
+      "batch_details": {
+        "units_produced": 17000,
+        "units_distributed": 13000,
+        "units_recovered": 6000
+      },
+
+      "facilities": [
+        {
+          "name": "Apollo Medical Centre",
+          "type": "Hospital",
+          "location": "Delhi",
+          "state": "Delhi",
+          "units_received": 5000,
+          "units_recovered": 2500,
+          "status": "Active"
+        },
+        {
+          "name": "CarePlus Hospital",
+          "type": "Hospital",
+          "location": "Mumbai",
+          "state": "Maharashtra",
+          "units_received": 4000,
+          "units_recovered": 1500,
+          "status": "Active"
+        },
+        {
+          "name": "HealthPoint Pharmacy",
+          "type": "Pharmacy",
+          "location": "Pune",
+          "state": "Maharashtra",
+          "units_received": 4000,
+          "units_recovered": 2000,
+          "status": "Pending"
+        }
+      ],
+
+      "timeline": {
+        "manufactured": "2026-07-01",
+        "distributed": "2026-07-10",
+        "complaint": "2026-08-05",
+        "lab_test": "2026-08-15",
+        "recall_issued": "2026-08-20",
+        "stock_removed": "2026-08-23",
+        "closed": null
+      },
+
+      "ml_features": {
+        "production_volume": 17000,
+        "previous_recall_count": 1,
+        "complaint_count": 15,
+        "storage_violations": 2,
+        "manufacturing_delays": 2
+      },
+
+      "notifications": [
+        {
+          "stakeholder": "Apollo Medical Centre",
+          "stakeholder_type": "Hospital",
+          "alert_status": "Acknowledged",
+          "alert_sent": "2026-08-21T09:00:00",
+          "opened": "2026-08-21T09:30:00",
+          "stock_quarantined": "2026-08-21T12:00:00",
+          "action_confirmed": "2026-08-22T10:00:00",
+          "response_completed": null
+        },
+        {
+          "stakeholder": "HealthPoint Pharmacy",
+          "stakeholder_type": "Pharmacy",
+          "alert_status": "Pending",
+          "alert_sent": "2026-08-21T09:30:00",
+          "opened": null,
+          "stock_quarantined": null,
+          "action_confirmed": null,
+          "response_completed": null
+        }
+      ]
+    }
+  ]
+}

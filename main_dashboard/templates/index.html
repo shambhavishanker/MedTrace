@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedTrace AI - Recall Command Center</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('main_dashboard.static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>MEDTRACE AI</h2>
+            <p>Recall Management System</p>
+        </div>
+
+        <nav>
+
+            <a href="/" class="nav-item active">
+                Recall Command Center
+            </a>
+
+            <a href="/investigation" class="nav-item">
+                Recall Investigation Center
+            </a>
+
+            <a href="/analytics" class="nav-item">
+                Recall Intelligence & Analytics Dashboard
+            </a>
+
+            <a href="/predictive-risk" class="nav-item">
+                Predictive Risk Dashboard
+            </a>
+
+            <a href="/communication" class="nav-item">
+                Communication & Response Dashboard
+            </a>
+
+            <a href="/execution" class="nav-item">
+                Recall Execution Monitor
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+
+            <div>
+                <span class="system-name">MEDTRACE AI</span>
+                <span class="separator">/</span>
+                <span>Recall Command Center</span>
+            </div>
+
+        </header>
+
+
+        <!-- Page Heading -->
+        <section class="page-header">
+
+            <div>
+                <h1>Recall Command Center</h1>
+
+                <p>
+                    High-level overview of pharmaceutical recall activity
+                    and response status.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- KPI Cards -->
+        <section class="kpi-grid">
+
+            <div class="kpi-card">
+                <h3>Total Active Recalls</h3>
+                <p id="total-active">—</p>
+            </div>
+
+            <div class="kpi-card">
+                <h3>Total Closed Recalls</h3>
+                <p id="total-closed">—</p>
+            </div>
+
+            <div class="kpi-card">
+                <h3>Critical Recalls</h3>
+                <p id="critical">—</p>
+            </div>
+
+            <div class="kpi-card">
+                <h3>Hospitals Affected</h3>
+                <p id="hospitals">—</p>
+            </div>
+
+            <div class="kpi-card">
+                <h3>Pharmacies Affected</h3>
+                <p id="pharmacies">—</p>
+            </div>
+
+            <div class="kpi-card">
+                <h3>Manufacturers Involved</h3>
+                <p id="manufacturers">—</p>
+            </div>
+
+            <div class="kpi-card">
+                <h3>Average Recall Response Time</h3>
+                <p id="response-time">—</p>
+            </div>
+
+            <div class="kpi-card">
+                <h3>Average Recall Completion</h3>
+                <p id="completion">—</p>
+            </div>
+
+        </section>
+
+
+        <!-- Recent Notifications -->
+        <section class="dashboard-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>Recent Recall Notifications</h2>
+                    <p>Latest recall activity</p>
+                </div>
+            </div>
+
+            <div id="notifications" class="notification-list">
+                <!-- JavaScript will add notifications here -->
+            </div>
+
+        </section>
+
+
+        <!-- High Priority Alerts -->
+        <section class="dashboard-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>High-Priority Alerts</h2>
+                    <p>Recalls requiring immediate attention</p>
+                </div>
+            </div>
+
+            <div id="alerts" class="alert-list">
+                <!-- JavaScript will add alerts here -->
+            </div>
+
+        </section>
+
+
+        <!-- Quick Actions -->
+        <section class="dashboard-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>Quick Actions</h2>
+                    <p>Common recall management actions</p>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+
+                <a href="/view-recall" class="action-button">
+                    View Recall
+                </a>
+
+                <a href="/open-investigation" class="action-button">
+                    Open Investigation
+                </a>
+
+                <a href="/predict-risk" class="action-button">
+                    Predict Risk
+                </a>
+
+                <a href="/send-alert" class="action-button">
+                    Send Alert
+                </a>
+
+                <a href="/generate-report" class="action-button">
+                    Generate Report
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="{{ url_for('main_dashboard.static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

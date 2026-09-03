@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Recall Intelligence & Analytics Dashboard
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('dashboard2.static', filename='analytics.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="dashboard-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                M
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+                    MEDTRACE
+                </div>
+
+                <div class="brand-subtitle">
+                    AI Recall Intelligence
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-divider"></div>
+
+
+        <div class="sidebar-label">
+            DASHBOARDS
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="/"
+                class="nav-item"
+            >
+                Recall Command Center
+            </a>
+
+
+            <a
+                href="/investigation"
+                class="nav-item"
+            >
+                Recall Investigation Center
+            </a>
+
+
+            <a
+                href="/analytics"
+                class="nav-item active"
+            >
+                Recall Intelligence &amp;
+                Analytics Dashboard
+            </a>
+
+
+            <a
+                href="/predictive-risk"
+                class="nav-item"
+            >
+                Predictive Risk Dashboard
+            </a>
+
+
+            <a
+                href="/communication"
+                class="nav-item"
+            >
+                Communication &amp;
+                Response Dashboard
+            </a>
+
+
+            <a
+                href="/execution"
+                class="nav-item"
+            >
+                Recall Execution Monitor
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="breadcrumb">
+
+                <strong>
+                    MEDTRACE AI
+                </strong>
+
+                <span>
+                    /
+                </span>
+
+                <span>
+                    Recall Intelligence &amp;
+                    Analytics Dashboard
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <div class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div class="eyebrow">
+                    DATA ANALYTICS
+                </div>
+
+                <h1>
+                    Recall Intelligence &amp;
+                    Analytics Dashboard
+                </h1>
+
+                <p>
+                    Analyze historical recall data and identify
+                    patterns, trends, and common causes of
+                    medicine recalls.
+                </p>
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <section class="panel filters-panel">
+
+                <div class="section-label">
+                    FILTERS
+                </div>
+
+                <h2>
+                    Filters
+                </h2>
+
+
+                <div class="filters-grid">
+
+
+                    <div class="filter-group">
+
+                        <label for="year">
+                            Year
+                        </label>
+
+                        <select id="year">
+
+                            <option value="All">
+                                All
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label for="manufacturer">
+                            Manufacturer
+                        </label>
+
+                        <select id="manufacturer">
+
+                            <option value="All">
+                                All
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label for="category">
+                            Drug Category
+                        </label>
+
+                        <select id="category">
+
+                            <option value="All">
+                                All
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label for="severity">
+                            Severity
+                        </label>
+
+                        <select id="severity">
+
+                            <option value="All">
+                                All
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label for="state">
+                            State
+                        </label>
+
+                        <select id="state">
+
+                            <option value="All">
+                                All
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ANALYTICS GRID -->
+
+            <div class="analytics-grid">
+
+
+                <!-- TOP RECALL REASONS -->
+
+                <section class="panel chart-panel">
+
+                    <div class="section-label">
+                        CAUSES
+                    </div>
+
+                    <h2>
+                        Top Recall Reasons
+                    </h2>
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="topReasonsChart"
+                        ></canvas>
+
+                    </div>
+
+                </section>
+
+
+                <!-- MONTHLY TREND -->
+
+                <section class="panel chart-panel">
+
+                    <div class="section-label">
+                        TREND
+                    </div>
+
+                    <h2>
+                        Recall Trend by Month
+                    </h2>
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="monthlyTrendChart"
+                        ></canvas>
+
+                    </div>
+
+                </section>
+
+
+                <!-- MANUFACTURER TREND -->
+
+                <section class="panel chart-panel">
+
+                    <div class="section-label">
+                        MANUFACTURERS
+                    </div>
+
+                    <h2>
+                        Recall Trend by Manufacturer
+                    </h2>
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="manufacturerTrendChart"
+                        ></canvas>
+
+                    </div>
+
+                </section>
+
+
+                <!-- DRUG CATEGORY -->
+
+                <section class="panel chart-panel">
+
+                    <div class="section-label">
+                        CATEGORIES
+                    </div>
+
+                    <h2>
+                        Drug Category Recall %
+                    </h2>
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="drugCategoryChart"
+                        ></canvas>
+
+                    </div>
+
+                </section>
+
+
+                <!-- AVERAGE DURATION -->
+
+                <section class="panel metric-panel">
+
+                    <div class="section-label">
+                        DURATION
+                    </div>
+
+                    <h2>
+                        Average Recall Duration
+                    </h2>
+
+                    <div
+                        id="averageDuration"
+                        class="metric-value"
+                    >
+                        —
+                    </div>
+
+                    <div class="metric-unit">
+                        days
+                    </div>
+
+                </section>
+
+
+                <!-- FREQUENCY -->
+
+                <section class="panel metric-panel">
+
+                    <div class="section-label">
+                        FREQUENCY
+                    </div>
+
+                    <h2>
+                        Recall Frequency
+                    </h2>
+
+                    <div
+                        id="recallFrequency"
+                        class="metric-value"
+                    >
+                        —
+                    </div>
+
+                    <div class="metric-unit">
+                        recalls
+                    </div>
+
+                </section>
+
+
+                <!-- HEATMAP -->
+
+                <section class="panel table-panel">
+
+                    <div class="section-label">
+                        HEATMAP
+                    </div>
+
+                    <h2>
+                        Heatmaps
+                    </h2>
+
+                    <div
+                        id="heatmapContainer"
+                        class="table-container"
+                    >
+                        Loading...
+                    </div>
+
+                </section>
+
+
+                <!-- MANUFACTURER PERFORMANCE -->
+
+                <section class="panel table-panel">
+
+                    <div class="section-label">
+                        ANALYSIS
+                    </div>
+
+                    <h2>
+                        Manufacturer Performance Analysis
+                    </h2>
+
+                    <div
+                        id="manufacturerPerformance"
+                        class="table-container"
+                    >
+                        Loading...
+                    </div>
+
+                </section>
+
+
+                <!-- SEVERITY -->
+
+                <section class="panel chart-panel">
+
+                    <div class="section-label">
+                        SEVERITY
+                    </div>
+
+                    <h2>
+                        Severity Analysis
+                    </h2>
+
+                    <div class="chart-container">
+
+                        <canvas
+                            id="severityChart"
+                        ></canvas>
+
+                    </div>
+
+                </section>
+
+
+                <!-- INSIGHTS -->
+
+                <section class="panel insights-panel">
+
+                    <div class="section-label">
+                        INSIGHTS
+                    </div>
+
+                    <h2>
+                        Insights
+                    </h2>
+
+                    <div id="insights">
+                        Loading insights...
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- CHART.JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<!-- DASHBOARD JAVASCRIPT -->
+
+<script
+    
+    src="/dashboard2/static/analytics.js?v=3"
+></script>
+
+
+</body>
+
+</html>

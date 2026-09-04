@@ -41,13 +41,85 @@ def load_data():
 
 
 # --------------------------------------------------
+# BUILD INVESTIGATION DETAILS
+# --------------------------------------------------
+
+def build_investigation(recall):
+
+    reason = recall.get(
+        "reason",
+        "Quality issue"
+    )
+
+    severity = recall.get(
+        "severity",
+        "Unknown"
+    )
+
+    medicine = recall.get(
+        "medicine",
+        "Medicine"
+    )
+
+    manufacturer = recall.get(
+        "manufacturer",
+        "Manufacturer"
+    )
+
+    batch = recall.get(
+        "batch",
+        "Unknown"
+    )
+
+    investigation = {
+
+        "status": "Under Investigation",
+
+        "primary_finding": (
+            f"{reason} identified in batch {batch} "
+            f"of {medicine} manufactured by "
+            f"{manufacturer}."
+        ),
+
+        "investigation_source":
+            "Quality Control Testing",
+
+        "affected_stage":
+            "Manufacturing",
+
+        "evidence_reviewed": [
+            "Batch quality test results",
+            "Manufacturing records",
+            "Distribution records"
+        ],
+
+        "assessment": (
+            f"The recall is classified as "
+            f"{severity} severity. Further review "
+            f"of the affected batch and recovery "
+            f"status is required."
+        ),
+
+        "recommended_action": (
+            "Continue stock recovery, verify "
+            "affected facility inventory, and "
+            "complete the quality investigation."
+        )
+    }
+
+    return investigation
+
+
+# --------------------------------------------------
 # DASHBOARD 1 HOME
 # --------------------------------------------------
 
 @dashboard1.route("/investigation")
 def dashboard():
 
-    return render_template("dashboard1.html")
+    return render_template(
+        "dashboard1.html"
+    )
 
 
 # --------------------------------------------------
@@ -86,7 +158,17 @@ def get_recall(recall_id):
 
             if recall["recall_id"] == recall_id:
 
-                return jsonify(recall)
+                # Make a copy so the original
+                # dataset is NOT modified.
+                recall_data = dict(recall)
+
+                # Generate investigation details
+                # for Dashboard 1 only.
+                recall_data["investigation"] = (
+                    build_investigation(recall)
+                )
+
+                return jsonify(recall_data)
 
         return jsonify({
             "error": "Recall not found"
@@ -116,9 +198,11 @@ def get_batch_details(recall_id):
 
                 return jsonify({
 
-                    "recall_id": recall["recall_id"],
+                    "recall_id":
+                        recall["recall_id"],
 
-                    "batch": recall["batch"],
+                    "batch":
+                        recall["batch"],
 
                     "batch_details":
                         recall["batch_details"]
@@ -157,7 +241,10 @@ def get_facilities(recall_id):
                         recall["recall_id"],
 
                     "facilities":
-                        recall.get("facilities", [])
+                        recall.get(
+                            "facilities",
+                            []
+                        )
 
                 })
 
@@ -193,7 +280,10 @@ def get_timeline(recall_id):
                         recall["recall_id"],
 
                     "timeline":
-                        recall.get("timeline", {})
+                        recall.get(
+                            "timeline",
+                            {}
+                        )
 
                 })
 
@@ -212,7 +302,9 @@ def get_timeline(recall_id):
 # GET INVESTIGATION DETAILS
 # --------------------------------------------------
 
-@dashboard1.route("/api/recalls/<recall_id>/investigation")
+@dashboard1.route(
+    "/api/recalls/<recall_id>/investigation"
+)
 def get_investigation(recall_id):
 
     try:
@@ -223,37 +315,8 @@ def get_investigation(recall_id):
 
             if recall["recall_id"] == recall_id:
 
-                investigation = recall.get(
-                    "investigation",
-                    {
-                        "status":
-                            "Under Investigation",
-
-                        "primary_finding":
-                            "Investigation details are being reviewed.",
-
-                        "investigation_source":
-                            "Quality Control Testing",
-
-                        "affected_stage":
-                            "Manufacturing",
-
-                        "evidence_reviewed": [
-
-                            "Batch quality test results",
-
-                            "Manufacturing records",
-
-                            "Distribution records"
-
-                        ],
-
-                        "assessment":
-                            "Further investigation required.",
-
-                        "recommended_action":
-                            "Continue facility-level recovery and quality investigation."
-                    }
+                investigation = build_investigation(
+                    recall
                 )
 
                 return jsonify({

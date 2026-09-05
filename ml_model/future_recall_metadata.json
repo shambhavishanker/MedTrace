@@ -1,0 +1,24 @@
+{
+    "model": "Logistic Regression",
+    "target": "Future recall occurrence",
+    "training_records": 500,
+    "test_records": 100,
+    "accuracy": 0.93,
+    "precision": 0.956,
+    "recall": 0.9667,
+    "f1_score": 0.9613,
+    "features": [
+        "historical_recall_count",
+        "complaint_count",
+        "previous_recall_count",
+        "production_volume",
+        "storage_violations",
+        "manufacturing_delays",
+        "facility_count",
+        "distribution_volume",
+        "drug_category",
+        "manufacturer"
+    ],
+    "data_type": "Simulated historical drug-period data",
+    "note": "Prototype model estimating future recall likelihood from historical patterns."
+}

@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,22 +18,123 @@
 
 <body>
 
-<div class="dashboard-container">
+<div class="dashboard-layout">
 
 
-    <!-- ================= HEADER ================= -->
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
 
-    <header class="dashboard-header">
+    <aside class="sidebar">
 
-        <div class="brand-name">
-            MEDTRACE
-        </div>
+        <div class="brand">
 
-        <div class="header-content">
+            <div class="brand-logo">
+                M
+            </div>
 
             <div>
 
-                <h1>Recall Investigation Center</h1>
+                <div class="brand-name">
+                    MEDTRACE
+                </div>
+
+                <div class="brand-subtitle">
+                    AI Recall Intelligence
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-divider"></div>
+
+
+        <div class="sidebar-label">
+            DASHBOARDS
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="/" class="nav-item">
+                Recall Command Center
+            </a>
+
+            <a href="/investigation" class="nav-item active">
+                Recall Investigation Center
+            </a>
+
+            <a href="/analytics" class="nav-item">
+                Recall Intelligence &amp; Analytics Dashboard
+            </a>
+
+            <a href="/predictive-risk" class="nav-item">
+                Predictive Risk Dashboard
+            </a>
+
+            <a href="/communication" class="nav-item">
+                Communication &amp; Response Dashboard
+            </a>
+
+            <a href="/execution" class="nav-item">
+                Recall Execution Monitor
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="breadcrumb">
+
+                <strong>
+                    MEDTRACE AI
+                </strong>
+
+                <span>
+                    /
+                </span>
+
+                <span>
+                    Recall Investigation Center
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <div class="page-content">
+
+
+            <!-- =================================================
+                 PAGE HEADER
+                 ================================================= -->
+
+            <div class="page-header">
+
+                <div class="eyebrow">
+                    RECALL INVESTIGATION
+                </div>
+
+                <h1>
+                    Recall Investigation Center
+                </h1>
 
                 <p>
                     Investigate medicine recalls, batches,
@@ -41,404 +143,480 @@
 
             </div>
 
-        </div>
 
-    </header>
 
+            <!-- =================================================
+                 SELECT RECALL
+                 ================================================= -->
 
+            <section class="search-section">
 
-    <!-- ================= SELECT RECALL ================= -->
+                <div class="section-title">
 
-    <section class="search-section">
+                    <div>
 
-        <div class="section-title">
+                        <span class="section-label">
+                            RECALL INVESTIGATION
+                        </span>
 
-            <div>
+                        <h2>
+                            Select Recall
+                        </h2>
 
-                <span class="section-label">
-                    RECALL INVESTIGATION
-                </span>
+                        <p>
+                            Select a recall to view its complete
+                            investigation details.
+                        </p>
 
-                <h2>Select Recall</h2>
-
-                <p>
-                    Select a recall to view its complete investigation details.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="search-box">
-
-            <select id="recallSelect">
-
-                <option value="">
-                    -- Select a Recall --
-                </option>
-
-            </select>
-
-
-            <button onclick="searchRecall()">
-                View Recall
-            </button>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ================= RECALL OVERVIEW ================= -->
-
-    <section class="dashboard-section">
-
-        <div class="section-heading">
-
-            <div>
-
-                <span class="section-label">
-                    RECALL DETAILS
-                </span>
-
-                <h2>Recall Overview</h2>
-
-            </div>
-
-        </div>
-
-
-        <div id="recallOverview"
-             class="overview-grid">
-
-
-            <div class="info-card">
-
-                <span>Recall ID</span>
-
-                <strong id="recallId">—</strong>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <span>Medicine</span>
-
-                <strong id="medicine">—</strong>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <span>Manufacturer</span>
-
-                <strong id="manufacturer">—</strong>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <span>Batch</span>
-
-                <strong id="batch">—</strong>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <span>Recall Reason</span>
-
-                <strong id="reason">—</strong>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <span>Severity</span>
-
-                <strong id="severity"
-                        class="status-critical">
-                    —
-                </strong>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <span>Recall Date</span>
-
-                <strong id="recallDate">—</strong>
-
-            </div>
-
-
-            <div class="info-card">
-
-                <span>Status</span>
-
-                <strong id="status"
-                        class="status-progress">
-                    —
-                </strong>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ================= BATCH & INVENTORY ================= -->
-
-    <section class="dashboard-section">
-
-        <div class="section-heading">
-
-            <div>
-
-                <span class="section-label">
-                    INVENTORY TRACKING
-                </span>
-
-                <h2>Batch & Inventory</h2>
-
-            </div>
-
-            <span id="batchNumber"
-                  class="batch-badge">
-                Batch: —
-            </span>
-
-        </div>
-
-
-        <div class="inventory-grid">
-
-
-            <div class="inventory-card">
-
-                <span>Units Produced</span>
-
-                <strong id="unitsProduced">—</strong>
-
-            </div>
-
-
-            <div class="inventory-card">
-
-                <span>Units Distributed</span>
-
-                <strong id="unitsDistributed">—</strong>
-
-            </div>
-
-
-            <div class="inventory-card">
-
-                <span>Units Recovered</span>
-
-                <strong id="unitsRecovered">—</strong>
-
-            </div>
-
-
-            <div class="inventory-card">
-
-                <span>Units Remaining</span>
-
-                <strong id="unitsRemaining">—</strong>
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- RECOVERY PROGRESS -->
-
-        <div class="recovery-section">
-
-            <div class="recovery-header">
-
-                <div>
-
-                    <span>Recall Recovery Progress</span>
-
-                    <p>
-                        Percentage of distributed units recovered.
-                    </p>
+                    </div>
 
                 </div>
 
-                <strong id="recallCompletion">
-                    —
-                </strong>
 
-            </div>
+                <div class="search-box">
+
+                    <select id="recallSelect">
+
+                        <option value="">
+                            -- Select a Recall --
+                        </option>
+
+                    </select>
 
 
-            <div class="progress-bar">
+                    <button onclick="searchRecall()">
+                        View Recall
+                    </button>
 
-                <div id="recoveryProgress"
-                     class="progress-fill"
-                     style="width: 0%;">
                 </div>
 
-            </div>
-
-        </div>
-
-    </section>
+            </section>
 
 
 
-    <!-- ================= AFFECTED FACILITIES ================= -->
+            <!-- =================================================
+                 RECALL OVERVIEW
+                 ================================================= -->
 
-    <section class="dashboard-section">
+            <section class="dashboard-section">
 
-        <div class="section-heading">
+                <div class="section-heading">
 
-            <div>
+                    <div>
 
-                <span class="section-label">
-                    DISTRIBUTION IMPACT
-                </span>
+                        <span class="section-label">
+                            RECALL DETAILS
+                        </span>
 
-                <h2>Affected Facilities</h2>
+                        <h2>
+                            Recall Overview
+                        </h2>
 
-                <p>
-                    Facilities currently holding or recovering affected stock.
-                </p>
+                    </div>
 
-            </div>
-
-        </div>
-
-
-        <div id="facilitiesContainer"
-             class="table-container">
-
-            <div class="empty-state">
-
-                <div class="empty-icon">
-                    —
                 </div>
 
-                <p>
-                    Search for a recall to view affected facilities.
-                </p>
 
-            </div>
-
-        </div>
-
-    </section>
+                <div id="recallOverview"
+                     class="overview-grid">
 
 
+                    <div class="info-card">
 
-    <!-- ================= RECALL TIMELINE ================= -->
+                        <span>
+                            Recall ID
+                        </span>
 
-    <section class="dashboard-section">
+                        <strong id="recallId">
+                            —
+                        </strong>
 
-        <div class="section-heading">
-
-            <div>
-
-                <span class="section-label">
-                    RECALL HISTORY
-                </span>
-
-                <h2>Recall Timeline</h2>
-
-                <p>
-                    Key events from manufacturing to recall closure.
-                </p>
-
-            </div>
-
-        </div>
+                    </div>
 
 
-        <div id="timelineContainer"
-             class="timeline-container">
+                    <div class="info-card">
 
-            <div class="empty-state">
+                        <span>
+                            Medicine
+                        </span>
 
-                <div class="empty-icon">
-                    —
+                        <strong id="medicine">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Manufacturer
+                        </span>
+
+                        <strong id="manufacturer">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Batch
+                        </span>
+
+                        <strong id="batch">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Recall Reason
+                        </span>
+
+                        <strong id="reason">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Severity
+                        </span>
+
+                        <strong id="severity"
+                                class="status-critical">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Recall Date
+                        </span>
+
+                        <strong id="recallDate">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <span>
+                            Status
+                        </span>
+
+                        <strong id="status"
+                                class="status-progress">
+                            —
+                        </strong>
+
+                    </div>
+
+
                 </div>
 
-                <p>
-                    Search for a recall to view its timeline.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
+            </section>
 
 
 
-    <!-- ================= INVESTIGATION FINDINGS ================= -->
+            <!-- =================================================
+                 BATCH & INVENTORY
+                 ================================================= -->
 
-    <section class="dashboard-section investigation-section">
+            <section class="dashboard-section">
 
-        <div class="section-heading">
+                <div class="section-heading">
 
-            <div>
+                    <div>
 
-                <span class="section-label">
-                    QUALITY INVESTIGATION
-                </span>
+                        <span class="section-label">
+                            INVENTORY TRACKING
+                        </span>
 
-                <h2>Investigation Findings</h2>
+                        <h2>
+                            Batch &amp; Inventory
+                        </h2>
 
-                <p>
-                    Findings and evidence associated with the selected recall.
-                </p>
-
-            </div>
-
-        </div>
+                    </div>
 
 
-        <div id="investigationContainer"
-             class="investigation-container">
+                    <span id="batchNumber"
+                          class="batch-badge">
+                        Batch: —
+                    </span>
 
-            <div class="empty-state">
-
-                <div class="empty-icon">
-                    —
                 </div>
 
-                <p>
-                    Search for a recall to view investigation findings.
-                </p>
 
-            </div>
+                <div class="inventory-grid">
+
+
+                    <div class="inventory-card">
+
+                        <span>
+                            Units Produced
+                        </span>
+
+                        <strong id="unitsProduced">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="inventory-card">
+
+                        <span>
+                            Units Distributed
+                        </span>
+
+                        <strong id="unitsDistributed">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="inventory-card">
+
+                        <span>
+                            Units Recovered
+                        </span>
+
+                        <strong id="unitsRecovered">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="inventory-card">
+
+                        <span>
+                            Units Remaining
+                        </span>
+
+                        <strong id="unitsRemaining">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- RECOVERY PROGRESS -->
+
+                <div class="recovery-section">
+
+                    <div class="recovery-header">
+
+                        <div>
+
+                            <span>
+                                Recall Recovery Progress
+                            </span>
+
+                            <p>
+                                Percentage of distributed units recovered.
+                            </p>
+
+                        </div>
+
+                        <strong id="recallCompletion">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div id="recoveryProgress"
+                             class="progress-fill"
+                             style="width: 0%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 AFFECTED FACILITIES
+                 ================================================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            DISTRIBUTION IMPACT
+                        </span>
+
+                        <h2>
+                            Affected Facilities
+                        </h2>
+
+                        <p>
+                            Facilities currently holding or recovering
+                            affected stock.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div id="facilitiesContainer"
+                     class="table-container">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            —
+                        </div>
+
+                        <p>
+                            Search for a recall to view affected facilities.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 RECALL TIMELINE
+                 ================================================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            RECALL HISTORY
+                        </span>
+
+                        <h2>
+                            Recall Timeline
+                        </h2>
+
+                        <p>
+                            Key events from manufacturing to recall closure.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div id="timelineContainer"
+                     class="timeline-container">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            —
+                        </div>
+
+                        <p>
+                            Search for a recall to view its timeline.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 INVESTIGATION FINDINGS
+                 ================================================= -->
+
+            <section class="dashboard-section investigation-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            QUALITY INVESTIGATION
+                        </span>
+
+                        <h2>
+                            Investigation Findings
+                        </h2>
+
+                        <p>
+                            Findings and evidence associated with
+                            the selected recall.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div id="investigationContainer"
+                     class="investigation-container">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            —
+                        </div>
+
+                        <p>
+                            Search for a recall to view investigation findings.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
 
         </div>
 
-    </section>
-
+    </main>
 
 </div>
 
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- =========================================================
+     DASHBOARD 1 JAVASCRIPT
+     ========================================================= -->
 
 <script src="{{ url_for('dashboard1.static', filename='dashboard1_script.js') }}"></script>
 
@@ -446,3 +624,4 @@
 </body>
 
 </html>
+```

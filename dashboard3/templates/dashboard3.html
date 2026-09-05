@@ -1,0 +1,2170 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedTrace - Predictive Risk Dashboard</title>
+
+    <style>
+
+        /* =========================================================
+           MEDTRACE DASHBOARD 3
+           VISUAL SYSTEM SYNCHRONIZED WITH DASHBOARD 2
+           ========================================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f5f0;
+            color: #243b53;
+        }
+
+
+        /* =========================================================
+           MAIN LAYOUT
+           ========================================================= */
+
+        .dashboard-layout {
+            min-height: 100vh;
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+           ========================================================= */
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 245px;
+            height: 100vh;
+
+            background: #fbfaf7;
+            border-right: 1px solid #e5e2dc;
+
+            padding: 28px 14px;
+
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            padding: 0 10px 22px;
+        }
+
+        .brand-logo {
+            width: 32px;
+            height: 32px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #357fc1;
+            color: white;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            margin-right: 10px;
+        }
+
+        .brand-name {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #2b6fa8;
+        }
+
+        .brand-subtitle {
+            font-size: 9px;
+            color: #718096;
+            margin-top: 2px;
+        }
+
+        .sidebar-divider {
+            height: 1px;
+            background: #e5e2dc;
+            margin-bottom: 25px;
+        }
+
+        .sidebar-label {
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #8996a5;
+            padding: 0 10px 13px;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .nav-item {
+            display: block;
+            min-height: 43px;
+
+            padding: 9px 12px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            color: #53677d;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            line-height: 1.35;
+
+            transition: 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: #f0f5f8;
+        }
+
+        .nav-item.active {
+            background: #e7f1f8;
+            color: #2f78b7;
+        }
+
+
+        /* =========================================================
+           MAIN CONTENT
+           ========================================================= */
+
+        .main-content {
+            margin-left: 245px;
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
+
+
+        /* =========================================================
+           TOP BAR
+           ========================================================= */
+
+        .topbar {
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 35px;
+
+            background: #fbfaf7;
+
+            border-bottom: 1px solid #e5e2dc;
+
+            font-size: 11px;
+
+            color: #718096;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb strong {
+            color: #263d55;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumb span {
+            margin-left: 10px;
+        }
+
+
+        /* =========================================================
+           PAGE CONTENT
+           ========================================================= */
+
+        .page-content {
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           PAGE HEADER
+           ========================================================= */
+
+        .page-header {
+            padding: 45px 35px 25px;
+        }
+
+        .eyebrow {
+            color: #2e82c5;
+
+            font-size: 9px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 7px;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+
+            line-height: 1.2;
+
+            color: #203b56;
+
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            font-size: 13px;
+
+            color: #718096;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           SECTION TITLES
+           ========================================================= */
+
+        .section-title {
+            font-size: 16px;
+            color: #233f5b;
+            margin: 0 35px 12px;
+            font-weight: 600;
+        }
+
+
+        /* =========================================================
+           PANELS / CARDS
+           ========================================================= */
+
+        .card {
+            background: #ffffff;
+
+            border: 1px solid #e5e8eb;
+
+            border-radius: 12px;
+
+            box-shadow: 0 2px 7px rgba(40, 60, 80, 0.04);
+
+            padding: 20px;
+
+            margin: 0 35px 18px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .card-title {
+            font-size: 16px;
+
+            color: #233f5b;
+
+            margin-top: 7px;
+
+            font-weight: 600;
+        }
+
+        .card-subtitle {
+            font-size: 12px;
+
+            color: #718096;
+
+            margin-top: 6px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           FILTERS
+           ========================================================= */
+
+        .filters {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, minmax(0, 1fr));
+
+            gap: 12px;
+
+            margin: 0 35px 18px;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e8eb;
+
+            border-radius: 12px;
+
+            box-shadow: 0 2px 7px rgba(40, 60, 80, 0.04);
+
+            padding: 20px;
+        }
+
+        .filter-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-box label {
+            font-size: 10px;
+
+            font-weight: 600;
+
+            color: #687b8e;
+
+            margin-bottom: 7px;
+        }
+
+        .filter-box select {
+            width: 100%;
+
+            height: 38px;
+
+            padding: 0 12px;
+
+            background: #fbfaf7;
+
+            border: 1px solid #dfe5e9;
+
+            border-radius: 8px;
+
+            color: #42566a;
+
+            font-size: 11px;
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+        .filter-box select:focus {
+            border-color: #7fb6da;
+        }
+
+
+        /* =========================================================
+           KPI GRID
+           ========================================================= */
+
+        .kpi-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 18px;
+
+            margin: 0 35px 18px;
+        }
+
+        .kpi-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e8eb;
+
+            border-radius: 12px;
+
+            box-shadow: 0 2px 7px rgba(40, 60, 80, 0.04);
+
+            padding: 20px;
+        }
+
+        .kpi-label {
+            font-size: 10px;
+
+            font-weight: 600;
+
+            color: #687b8e;
+
+            margin-bottom: 10px;
+        }
+
+        .kpi-value {
+            font-size: 30px;
+
+            font-weight: 700;
+
+            color: #203b56;
+        }
+
+
+        /* =========================================================
+           BADGES
+           ========================================================= */
+
+        .badge {
+            display: inline-block;
+
+            padding: 5px 8px;
+
+            border-radius: 5px;
+
+            background: #e7f1f8;
+
+            color: #2f78b7;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================================================
+           TABLES
+           ========================================================= */
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin-top: 18px;
+        }
+
+        th {
+            text-align: left;
+
+            font-weight: 700;
+
+            color: #334b62;
+
+            padding: 9px 8px;
+
+            border-bottom: 1px solid #e5e8eb;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.3px;
+
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 9px 8px;
+
+            border-bottom: 1px solid #edf0f2;
+
+            font-size: 12px;
+
+            color: #40566c;
+        }
+
+        tbody tr:hover {
+            background: #faf9f6;
+        }
+
+        .model-name {
+            font-weight: 600;
+            color: #263f58;
+        }
+
+
+        /* =========================================================
+           MODEL NOTE
+           ========================================================= */
+
+        .model-note {
+            margin-top: 15px;
+
+            padding-top: 12px;
+
+            border-top: 1px solid #edf0f2;
+
+            font-size: 11px;
+
+            color: #8996a5;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           RISK LEVELS
+           ========================================================= */
+
+        .risk-high {
+            color: #a9565e;
+            font-weight: 700;
+        }
+
+        .risk-medium {
+            color: #a47635;
+            font-weight: 700;
+        }
+
+        .risk-low {
+            color: #557d73;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           INSIGHTS
+           ========================================================= */
+
+        .insight-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+        .insight-card {
+            background: #faf9f6;
+
+            border: 1px solid #e5e8eb;
+
+            border-left: 3px solid #6fa6ce;
+
+            border-radius: 5px;
+
+            padding: 14px;
+        }
+
+        .insight-label {
+            font-size: 10px;
+
+            font-weight: 600;
+
+            color: #687b8e;
+
+            margin-bottom: 8px;
+        }
+
+        .insight-value {
+            font-size: 15px;
+
+            font-weight: 700;
+
+            color: #203b56;
+
+            line-height: 1.35;
+        }
+
+        .insight-detail {
+            font-size: 11px;
+
+            color: #718096;
+
+            margin-top: 7px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           PREDICTION GRID
+           ========================================================= */
+
+        .prediction-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, minmax(0, 1fr));
+
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+        .prediction-item {
+            background: #faf9f6;
+
+            border: 1px solid #e5e8eb;
+
+            border-radius: 7px;
+
+            padding: 14px;
+        }
+
+        .prediction-label {
+            display: block;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            color: #687b8e;
+
+            margin-bottom: 7px;
+        }
+
+        .prediction-value {
+            font-size: 13px;
+
+            color: #203b56;
+
+            font-weight: 600;
+
+            line-height: 1.4;
+        }
+
+
+        /* =========================================================
+           ML EXPLANATION
+           ========================================================= */
+
+        .explanation-box {
+            margin-top: 20px;
+
+            border-top: 1px solid #e5e8eb;
+
+            padding-top: 18px;
+        }
+
+        .explanation-title {
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color: #233f5b;
+
+            margin-bottom: 6px;
+        }
+
+        .explanation-subtitle {
+            font-size: 11px;
+
+            color: #718096;
+
+            line-height: 1.5;
+
+            margin-bottom: 12px;
+        }
+
+        .explanation-item {
+            padding: 10px 12px;
+
+            border-radius: 5px;
+
+            background: #faf9f6;
+
+            border-left: 3px solid #6fa6ce;
+
+            margin-bottom: 7px;
+
+            font-size: 12px;
+
+            color: #40566c;
+        }
+
+
+        /* =========================================================
+           RISK ASSESSMENT
+           ========================================================= */
+
+        .risk-layout {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+
+            margin-top: 18px;
+        }
+
+        .risk-score {
+            font-size: 34px;
+
+            font-weight: 700;
+
+            color: #203b56;
+
+            margin-bottom: 3px;
+        }
+
+        .risk-priority {
+            font-size: 12px;
+
+            font-weight: 700;
+
+            color: #a9565e;
+
+            margin-bottom: 20px;
+        }
+
+        .risk-row {
+            margin-bottom: 14px;
+        }
+
+        .risk-row-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 6px;
+
+            font-size: 11px;
+
+            color: #687b8e;
+
+            font-weight: 600;
+        }
+
+        .risk-bar {
+            width: 100%;
+
+            height: 8px;
+
+            background: #e7ebee;
+
+            border-radius: 5px;
+
+            overflow: hidden;
+        }
+
+        .risk-bar-fill {
+            height: 100%;
+
+            width: 0%;
+
+            background: #4a9bd8;
+
+            border-radius: 5px;
+
+            transition: width 0.3s ease;
+        }
+
+        .warning-box {
+            padding: 12px;
+
+            border-radius: 5px;
+
+            background: #faf3e7;
+
+            border: 1px solid #ead8b8;
+
+            margin-bottom: 9px;
+
+            font-size: 12px;
+
+            color: #7a6137;
+        }
+
+        .recommendation-box {
+            padding: 13px;
+
+            border-radius: 6px;
+
+            background: #eaf3f8;
+
+            border: 1px solid #c8dfea;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            color: #365f78;
+        }
+
+
+        /* =========================================================
+           RISK DISTRIBUTION
+           ========================================================= */
+
+        .chart-container {
+            position: relative;
+
+            width: 100%;
+
+            height: 250px;
+
+            margin-top: 18px;
+        }
+
+        .chart-container canvas {
+            width: 100% !important;
+
+            height: 100% !important;
+        }
+
+
+        /* =========================================================
+           DISCLAIMER
+           ========================================================= */
+
+        .disclaimer {
+            margin: 0 35px;
+
+            padding: 13px 15px;
+
+            border-left: 3px solid #6fa6ce;
+
+            background: #faf9f6;
+
+            border-top: 1px solid #e5e8eb;
+
+            border-right: 1px solid #e5e8eb;
+
+            border-bottom: 1px solid #e5e8eb;
+
+            border-radius: 4px;
+
+            color: #687b8e;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+        }
+
+        .disclaimer strong {
+            color: #4f6478;
+        }
+
+
+        /* =========================================================
+           BUTTONS
+           ========================================================= */
+
+        button {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button,
+        .action-button {
+            background: #357fc1;
+
+            color: #ffffff;
+
+            border: none;
+
+            border-radius: 7px;
+
+            padding: 9px 14px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        button:hover,
+        .action-button:hover {
+            background: #2f72ad;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 1100px) {
+
+            .filters {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+            }
+
+            .kpi-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .prediction-grid {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+            }
+
+            .insight-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+        }
+
+
+        @media (max-width: 850px) {
+
+            .sidebar {
+                width: 210px;
+            }
+
+            .main-content {
+                margin-left: 210px;
+            }
+
+            .filters {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+
+            .kpi-grid {
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+
+            .card {
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+
+            .disclaimer {
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+
+            .section-title {
+                margin-left: 25px;
+                margin-right: 25px;
+            }
+
+            .page-header {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .prediction-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .risk-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .sidebar {
+                position: relative;
+
+                width: 100%;
+
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .topbar {
+                padding: 0 15px;
+            }
+
+            .breadcrumb {
+                flex-wrap: wrap;
+                gap: 2px;
+            }
+
+            .page-header {
+                padding: 30px 15px 20px;
+            }
+
+            .page-header h1 {
+                font-size: 27px;
+            }
+
+            .filters {
+                grid-template-columns: 1fr;
+
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            .kpi-grid {
+                grid-template-columns: 1fr;
+
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            .section-title {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            .card {
+                margin-left: 15px;
+                margin-right: 15px;
+
+                padding: 18px;
+            }
+
+            .disclaimer {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            .prediction-grid,
+            .insight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-header {
+                flex-direction: column;
+            }
+
+            table {
+                display: table;
+                min-width: 700px;
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- =====================================================
+             SIDEBAR
+             ===================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    M
+                </div>
+
+                <div>
+
+                    <div class="brand-name">
+                        MEDTRACE
+                    </div>
+
+                    <div class="brand-subtitle">
+                        AI Recall Intelligence
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-divider"></div>
+
+
+            <div class="sidebar-label">
+                DASHBOARDS
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a href="/" class="nav-item">
+                    Recall Command Center
+                </a>
+
+                <a href="/investigation" class="nav-item">
+                    Recall Investigation Center
+                </a>
+
+                <a href="/analytics" class="nav-item">
+                    Recall Intelligence &amp; Analytics Dashboard
+                </a>
+
+                <a href="/predictive-risk" class="nav-item active">
+                    Predictive Risk Dashboard
+                </a>
+
+                <a href="/communication" class="nav-item">
+                    Communication &amp; Response Dashboard
+                </a>
+
+                <a href="/execution" class="nav-item">
+                    Recall Execution Monitor
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+             ===================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- TOP BAR -->
+
+            <header class="topbar">
+
+                <div class="breadcrumb">
+
+                    <strong>
+                        MEDTRACE AI
+                    </strong>
+
+                    <span>
+                        /
+                    </span>
+
+                    <span>
+                        Predictive Risk Dashboard
+                    </span>
+
+                </div>
+
+            </header>
+
+
+            <div class="page-content">
+
+
+                <!-- =================================================
+                     PAGE HEADER
+                     ================================================= -->
+
+                <div class="page-header">
+
+                    <div class="eyebrow">
+                        PREDICTIVE ANALYTICS
+                    </div>
+
+                    <h1>
+                        Predictive Risk Dashboard
+                    </h1>
+
+                    <p>
+                        Use machine learning and risk assessment to identify
+                        future recall risk and predict resolution delays for
+                        existing recalls.
+                    </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     FILTERS
+                     ================================================= -->
+
+                <div class="section-title">
+                    Filters
+                </div>
+
+
+                <div class="filters">
+
+                    <div class="filter-box">
+
+                        <label>
+                            Year
+                        </label>
+
+                        <select id="yearFilter">
+
+                            <option value="all">
+                                All Years
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-box">
+
+                        <label>
+                            Manufacturer
+                        </label>
+
+                        <select id="manufacturerFilter">
+
+                            <option value="all">
+                                All Manufacturers
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-box">
+
+                        <label>
+                            Drug Category
+                        </label>
+
+                        <select id="categoryFilter">
+
+                            <option value="all">
+                                All Categories
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-box">
+
+                        <label>
+                            Severity
+                        </label>
+
+                        <select id="severityFilter">
+
+                            <option value="all">
+                                All Severities
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-box">
+
+                        <label>
+                            State
+                        </label>
+
+                        <select id="stateFilter">
+
+                            <option value="all">
+                                All States
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     OPERATIONAL RISK SUMMARY
+                     ================================================= -->
+
+                <div class="section-title">
+                    Operational Risk Summary
+                </div>
+
+
+                <div class="kpi-grid">
+
+                    <div class="kpi-card">
+
+                        <div class="kpi-label">
+                            High-Priority Recalls
+                        </div>
+
+                        <div
+                            class="kpi-value"
+                            id="highPriorityCount">
+                            0
+                        </div>
+
+                    </div>
+
+
+                    <div class="kpi-card">
+
+                        <div class="kpi-label">
+                            Medium-Priority Recalls
+                        </div>
+
+                        <div
+                            class="kpi-value"
+                            id="mediumPriorityCount">
+                            0
+                        </div>
+
+                    </div>
+
+
+                    <div class="kpi-card">
+
+                        <div class="kpi-label">
+                            Low-Priority Recalls
+                        </div>
+
+                        <div
+                            class="kpi-value"
+                            id="lowPriorityCount">
+                            0
+                        </div>
+
+                    </div>
+
+
+                    <div class="kpi-card">
+
+                        <div class="kpi-label">
+                            Active Recalls at Risk
+                        </div>
+
+                        <div
+                            class="kpi-value"
+                            id="activeRiskCount">
+                            0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     FUTURE RECALL PREDICTION
+                     ================================================= -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <div class="card-title">
+                                Future Recall Prediction
+                            </div>
+
+                            <div class="card-subtitle">
+                                Identify medicines showing higher predicted
+                                likelihood of a future recall based on
+                                historical and operational patterns.
+                            </div>
+
+                        </div>
+
+
+                        <div class="badge">
+                            ML PREDICTION
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Medicine
+                                    </th>
+
+                                    <th>
+                                        Manufacturer
+                                    </th>
+
+                                    <th>
+                                        Category
+                                    </th>
+
+                                    <th>
+                                        Historical Recalls
+                                    </th>
+
+                                    <th>
+                                        Predicted Likelihood
+                                    </th>
+
+                                    <th>
+                                        Prediction Risk
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="futureRecallTableBody">
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <div class="model-note">
+
+                        The model estimates the likelihood of future recall
+                        occurrence using historical recall patterns and
+                        operational indicators.
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     PREDICTIVE INSIGHTS
+                     ================================================= -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <div class="card-title">
+                                Predictive Insights
+                            </div>
+
+                            <div class="card-subtitle">
+                                Key signals from the current
+                                machine-learning predictions.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="insight-grid">
+
+
+                        <div class="insight-card">
+
+                            <div class="insight-label">
+                                Highest Future Recall Risk
+                            </div>
+
+                            <div
+                                class="insight-value"
+                                id="highestFutureRisk">
+                                —
+                            </div>
+
+                            <div
+                                class="insight-detail"
+                                id="highestFutureRiskDetail">
+                                Awaiting prediction data.
+                            </div>
+
+                        </div>
+
+
+                        <div class="insight-card">
+
+                            <div class="insight-label">
+                                Selected Recall Delay Risk
+                            </div>
+
+                            <div
+                                class="insight-value"
+                                id="highestDelayRisk">
+                                —
+                            </div>
+
+                            <div
+                                class="insight-detail"
+                                id="highestDelayRiskDetail">
+                                Select a recall to view its predicted
+                                resolution risk.
+                            </div>
+
+                        </div>
+
+
+                        <div class="insight-card">
+
+                            <div class="insight-label">
+                                Key Model-Influencing Factors
+                            </div>
+
+                            <div
+                                class="insight-value"
+                                id="keyMLSignal">
+                                —
+                            </div>
+
+                            <div class="insight-detail">
+
+                                Factors shown here are model-influencing
+                                features, not confirmed causes.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     RECALL RESOLUTION PREDICTION
+                     ================================================= -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <div class="card-title">
+                                Recall Resolution Prediction
+                            </div>
+
+                            <div class="card-subtitle">
+                                Predict whether the selected existing recall
+                                is likely to require delayed resolution.
+                            </div>
+
+                        </div>
+
+
+                        <div class="badge">
+                            LOGISTIC REGRESSION
+                        </div>
+
+                    </div>
+
+
+                    <div class="prediction-grid">
+
+
+                        <div class="prediction-item">
+
+                            <div class="prediction-label">
+                                Prediction
+                            </div>
+
+                            <div
+                                class="prediction-value"
+                                id="mlPrediction">
+                                —
+                            </div>
+
+                        </div>
+
+
+                        <div class="prediction-item">
+
+                            <div class="prediction-label">
+                                Predicted Likelihood
+                            </div>
+
+                            <div
+                                class="prediction-value"
+                                id="mlProbability">
+                                —
+                            </div>
+
+                        </div>
+
+
+                        <div class="prediction-item">
+
+                            <div class="prediction-label">
+                                Predicted Risk Level
+                            </div>
+
+                            <div
+                                class="prediction-value"
+                                id="mlRiskLevel">
+                                —
+                            </div>
+
+                        </div>
+
+
+                        <div class="prediction-item">
+
+                            <div class="prediction-label">
+                                Model
+                            </div>
+
+                            <div
+                                class="prediction-value"
+                                id="mlModel">
+                                —
+                            </div>
+
+                        </div>
+
+
+                        <div class="prediction-item">
+
+                            <div class="prediction-label">
+                                Target
+                            </div>
+
+                            <div
+                                class="prediction-value"
+                                id="mlTarget">
+                                —
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="explanation-box">
+
+                        <div class="explanation-title">
+                            🧠 Why did the ML model make this prediction?
+                        </div>
+
+                        <div class="explanation-subtitle">
+                            Model-influencing factors for the selected recall.
+                            These indicate statistical influence, not
+                            confirmed causation.
+                        </div>
+
+
+                        <div id="mlExplanationContainer">
+
+                            <div class="explanation-item">
+                                No prediction available.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MODEL PERFORMANCE
+                     ================================================= -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <div class="card-title">
+                                📊 ML Model Performance
+                            </div>
+
+                            <div class="card-subtitle">
+                                Prototype evaluation of the two
+                                machine-learning models used in MedTrace.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table class="model-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Model
+                                    </th>
+
+                                    <th>
+                                        Target
+                                    </th>
+
+                                    <th>
+                                        Training Records
+                                    </th>
+
+                                    <th>
+                                        Accuracy
+                                    </th>
+
+                                    <th>
+                                        Precision
+                                    </th>
+
+                                    <th>
+                                        Recall
+                                    </th>
+
+                                    <th>
+                                        F1 Score
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+
+                                <tr>
+
+                                    <td class="model-name">
+                                        Resolution Delay Model
+                                    </td>
+
+                                    <td>
+                                        Delayed recall resolution
+                                    </td>
+
+                                    <td id="delayTrainingRecords">
+                                        —
+                                    </td>
+
+                                    <td id="delayAccuracy">
+                                        —
+                                    </td>
+
+                                    <td id="delayPrecision">
+                                        —
+                                    </td>
+
+                                    <td id="delayRecall">
+                                        —
+                                    </td>
+
+                                    <td id="delayF1">
+                                        —
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td class="model-name">
+                                        Future Recall Model
+                                    </td>
+
+                                    <td>
+                                        Future recall occurrence
+                                    </td>
+
+                                    <td id="futureTrainingRecords">
+                                        —
+                                    </td>
+
+                                    <td id="futureAccuracy">
+                                        —
+                                    </td>
+
+                                    <td id="futurePrecision">
+                                        —
+                                    </td>
+
+                                    <td id="futureRecall">
+                                        —
+                                    </td>
+
+                                    <td id="futureF1">
+                                        —
+                                    </td>
+
+                                </tr>
+
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <div class="model-note">
+
+                        Both models use simulated historical recall data for
+                        prototype evaluation. Performance values describe the
+                        test results of the prototype models and should not be
+                        interpreted as clinical or regulatory validation.
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     PRIORITY QUEUE
+                     ================================================= -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <div class="card-title">
+                                Priority Queue
+                            </div>
+
+                            <div class="card-subtitle">
+                                Rule-based urgency assessment for currently
+                                selected recalls.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Recall ID
+                                    </th>
+
+                                    <th>
+                                        Medicine
+                                    </th>
+
+                                    <th>
+                                        Severity
+                                    </th>
+
+                                    <th>
+                                        Recovery Gap
+                                    </th>
+
+                                    <th>
+                                        Risk Score
+                                    </th>
+
+                                    <th>
+                                        Priority
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="priorityTableBody">
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     RISK DISTRIBUTION
+                     ================================================= -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <div class="card-title">
+                                Risk Distribution
+                            </div>
+
+                            <div class="card-subtitle">
+                                Distribution of recalls by rule-based
+                                priority level.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-container">
+
+                        <canvas id="riskDistributionChart"></canvas>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     RISK ASSESSMENT
+                     ================================================= -->
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <div class="card-title">
+                                Risk Assessment
+                            </div>
+
+                            <div class="card-subtitle">
+                                Rule-based urgency score for the selected
+                                recall.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="risk-layout">
+
+
+                        <!-- LEFT: SCORE -->
+
+                        <div>
+
+                            <div
+                                class="risk-score"
+                                id="riskScore">
+                                —
+                            </div>
+
+
+                            <div
+                                class="risk-priority"
+                                id="riskPriority">
+                                —
+                            </div>
+
+
+                            <div class="risk-row">
+
+                                <div class="risk-row-top">
+
+                                    <span>
+                                        Severity
+                                    </span>
+
+                                    <span id="severityScore">
+                                        0
+                                    </span>
+
+                                </div>
+
+
+                                <div class="risk-bar">
+
+                                    <div
+                                        class="risk-bar-fill"
+                                        id="severityBar">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="risk-row">
+
+                                <div class="risk-row-top">
+
+                                    <span>
+                                        Reason
+                                    </span>
+
+                                    <span id="reasonScore">
+                                        0
+                                    </span>
+
+                                </div>
+
+
+                                <div class="risk-bar">
+
+                                    <div
+                                        class="risk-bar-fill"
+                                        id="reasonBar">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="risk-row">
+
+                                <div class="risk-row-top">
+
+                                    <span>
+                                        Recovery Gap
+                                    </span>
+
+                                    <span id="recoveryScore">
+                                        0
+                                    </span>
+
+                                </div>
+
+
+                                <div class="risk-bar">
+
+                                    <div
+                                        class="risk-bar-fill"
+                                        id="recoveryBar">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="risk-row">
+
+                                <div class="risk-row-top">
+
+                                    <span>
+                                        Recall Duration
+                                    </span>
+
+                                    <span id="durationScore">
+                                        0
+                                    </span>
+
+                                </div>
+
+
+                                <div class="risk-bar">
+
+                                    <div
+                                        class="risk-bar-fill"
+                                        id="durationBar">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="risk-row">
+
+                                <div class="risk-row-top">
+
+                                    <span>
+                                        Manufacturer History
+                                    </span>
+
+                                    <span id="manufacturerScore">
+                                        0
+                                    </span>
+
+                                </div>
+
+
+                                <div class="risk-bar">
+
+                                    <div
+                                        class="risk-bar-fill"
+                                        id="manufacturerBar">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- RIGHT: WARNINGS -->
+
+                        <div>
+
+                            <div id="warningContainer">
+                            </div>
+
+
+                            <div id="recommendationContainer">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     DISCLAIMER
+                     ================================================= -->
+
+                <div class="disclaimer">
+
+                    <strong>
+                        Prototype disclaimer:
+                    </strong>
+
+                    MedTrace predictions are decision-support outputs
+                    generated from simulated historical recall data.
+                    They are not confirmed future recalls, clinical
+                    decisions, regulatory determinations, or guarantees
+                    of recall resolution time. Model-influencing factors
+                    indicate statistical relationships within the prototype
+                    data and should not be interpreted as causal evidence.
+
+                </div>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+         CHART.JS
+         ========================================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- =========================================================
+         DASHBOARD 3 SCRIPT
+         ========================================================= -->
+
+    <script src="{{ url_for(
+        'dashboard3.static',
+        filename='dashboard3_script.js'
+    ) }}"></script>
+
+
+</body>
+</html>
+```
